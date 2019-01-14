@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+<header class="w3-container" style="padding-top:22px">
+    <h5><b><i class="fa fa-dashboard"></i> Industry Profitability Calculator.</b></h5>
+  </header>
+
+  <div class="w3-row-padding w3-margin-bottom">
+    
+      <div class="w3-container w3-orange w3-padding-16">
+        <div class="w3-clear"></div>
+        <h4>THIS IS A TESTING PAGE</h4>
+      </div>
+	  <div style="padding:20px;">
+	  <table class="w3-table-all w3-hoverable">
+		<tr class="w3-blue"><td class="w3-center">Item Name</td><td class="w3-center">Quantity</td><td class="w3-center">Time</td></tr>
+		{% for o in output %}
+			<tr>
+				<td class="w3-center"> {{o["item"]}}</td>
+				<td class="w3-center"> {{o["quantity"]}}</td>
+				<td class="w3-center"> {{o["time"]}}</td>
+			</tr>
+		{% endfor %}
+	
+	</table>
+	</div>
+	  {{output[]}}
+	  <br/>
+   </div>
+ 
+{% endblock %}

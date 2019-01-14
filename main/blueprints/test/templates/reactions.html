@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block content %}
+<header class="w3-container" style="padding-top:22px">
+    <h5><b><i class="fa fa-dashboard"></i> Reaction Calculator.</b></h5>
+  </header>
+
+  <div class="w3-row-padding w3-margin-bottom">
+    
+      <div class="w3-container w3-orange w3-padding-16">
+        <h4>THIS IS A TESTING PAGE</h4>
+      </div>
+	
+	{% for reactions in out %}
+	<div style="padding:20px;">
+	<table class="w3-table-all" width="100%">
+	<tr class="w3-blue"><td colspan=3 class="w3-center"> {{reactions["inter"][0]["result"]["item"] }}</td></tr>
+	<tr class="w3-light-blue">
+	  {% for reaction in reactions["inter"] %}
+	  <td><table class="w3-table-all w3-hoverable">
+		<tr class="w3-blue"><td class="w3-center">{{reaction["result"]["item"]}}</td><td class="w3-center">{{reaction["result"]["quantity"]}}</td><td class="w3-center">{{reaction["result"]["ISK"]}}  ISK</td></tr>
+		{% for o in reaction["materials"] %}
+			<tr>
+				<td class="w3-center"> {{o["item"]}}</td>
+				<td class="w3-center"> {{o["quantity"]}}</td>
+				<td class="w3-center"> {{o["ISK"]}} ISK</td>
+			</tr>
+		{% endfor %}
+		<tr class="w3-blue"><td class="w3-center" >EARN</td><td class="w3-center" colspan=2>{{reaction["earn"]}}  ISK</td></tr>
+		
+	  </table></td>
+	  {% endfor %} 
+	</tr>
+	<tr class="w3-blue"><td class="w3-center" colspan=3> TOTAL EARN : {{reactions["total_earn"]}} ISK</td></tr></table>
+	</div>
+	{% endfor %} 
+	  <br/>
+   </div>
+ 
+{% endblock %}
